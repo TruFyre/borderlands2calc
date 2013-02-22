@@ -2,6 +2,8 @@ package cmd.borderLands2Calc;
 
 public class Calculator {
 	
+	
+//	This method calculates the dps of a weapon without consideration of reload times.
 	public float dps(float damage, float fireRate)
 	throws IllegalArgumentException
 	{
@@ -17,6 +19,9 @@ public class Calculator {
 		
 	}
 	
+/*	This method calculates the dps of a weapon while also considering time spent reloading.  It gives a more accurate picture of how much damage you will do
+	from clip to clip.
+*/	
 	public float trueDps(float damage, float fireRate, float reloadTime, float clipSize, float ammoPerShot)
 	throws IllegalArgumentException
 	{
