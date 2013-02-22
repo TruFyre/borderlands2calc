@@ -2,7 +2,9 @@ package cmd.borderLands2Calc;
 
 public class Calculator {
 	
-	public float dps(float damage, float fireRate){
+	public float dps(float damage, float fireRate)
+	throws IllegalArgumentException
+	{
 		float dps = 0;
 		
 		if(damage < 0 || fireRate < 0){
