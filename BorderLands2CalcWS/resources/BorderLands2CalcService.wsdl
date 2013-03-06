@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://dolusnomenhic.net" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://dolusnomenhic.net" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://dolusnomenhic.net">
+	<xs:element name="trueDpsRequest">
+		<xs:complexType>
+			<xs:sequence>
+			  <xs:element minOccurs="1" name="damage" nillable="false" type="xs:float"/>
+			  <xs:element minOccurs="1" name="fireRate" nillable="false" type="xs:float"/>
+			  <xs:element minOccurs="1" name="reloadTime" nillable="false" type="xs:float"/>
+			  <xs:element minOccurs="1" name="clipSize" nillable="false" type="xs:float"/>
+			  <xs:element minOccurs="0" name="ammoPerShot" nillable="true" type="xs:float"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="trueDpsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="trueDps" nillable="false" type="xs:float"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="sendTrueDpsRequest">
+    <wsdl:part name="parameters" element="ns:trueDpsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTrueDpsResponse">
+    <wsdl:part name="parameters" element="ns:trueDpsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TrueDpsServicePortType">
+    <wsdl:operation name="calcTrueDps">
+      <wsdl:input message="ns:sendTrueDpsRequest" wsaw:Action="urn:calcTrueDps">
+    </wsdl:input>
+      <wsdl:output message="ns:getTrueDpsResponse" wsaw:Action="urn:calcTrueDpsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BorderLands2CalcServiceSoap11Binding" type="ns:TrueDpsServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="calcTrueDps">
+      <soap:operation soapAction="urn:calcTrueDps" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BorderLands2CalcServiceSoap12Binding" type="ns:TrueDpsServicePortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="calcTrueDps">
+      <soap12:operation soapAction="urn:calcTrueDps" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BorderLands2CalcServiceHttpBinding" type="ns:BorderLands2CalcServicePortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="calcTrueDps">
+      <http:operation location="BorderLands2CalcService/calcTrueDps"/>
+      <wsdl:input>
+        <mime:content part="calcTrueDps" type="text/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="calcTrueDps" type="text/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BorderLands2CalcService">
+    <wsdl:port name="BorderLands2CalcServiceHttpSoap11Endpoint" binding="ns:BorderLands2CalcServiceSoap11Binding">
+      <soap:address location="http://localhost:8080/axis2/services/BorderLands2Calc.BorderLands2CalcServiceHttpSoap11Endpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="BorderLands2CalcServiceHttpEndpoint" binding="ns:BorderLands2CalcServiceHttpBinding">
+      <http:address location="http://localhost:8080/axis2/services/BorderLands2Calc.BorderLands2CalcServiceHttpEndpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="BorderLands2CalcServiceHttpSoap12Endpoint" binding="ns:BorderLands2CalcServiceSoap12Binding">
+      <soap12:address location="http://localhost:8080/axis2/services/BorderLands2Calc.BorderLands2CalcServiceHttpSoap12Endpoint/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

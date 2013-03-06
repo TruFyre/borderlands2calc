@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BorderLands2CalcServlet" default="war">
+	<target name="init">
+			<mkdir dir="build/classes"/>
+			<mkdir dir="dist"/>
+	</target>
+	
+	<path id="compile.classpath">
+			<fileset dir="src">
+				<include name="*.java"/>
+			</fileset>
+			<fileset dir="libs">
+					<include name="*.jar"/>
+			</fileset>
+	</path>
+	
+	<target name="compile" depends="init">
+		<javac destdir="build/classes" debug="true" srcdir="src">
+			<classpath refid="compile.classpath"/>
+		</javac>
+	</target>
+	
+	<target name="war" depends="compile">
+		<war destfile="dist/BorderLands2CalcServlet.war" webxml="WebContent/WEB-INF/web.xml">
+			<fileset dir="WebContent"/>
+			<lib dir="WebContent/WEB-INF/lib"/>
+			<!-- <lib dir="libs"/> -->
+			<classes dir="build/classes"/>
+		</war>
+	</target>
+	
+	<target name="clean">
+		<delete dir="dist"/>
+		<delete dir="build"/>
+	</target>
+	
+</project>
