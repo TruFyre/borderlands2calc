@@ -3,10 +3,8 @@
   <display-name>BorderLands2CalcS</display-name>
   
   <servlet>
-  	<description>A servlet that handles web requests and links them to the appropriate web service via a handler.</description>
   	<servlet-name>BorderLands2CalcServlet</servlet-name>
   	<servlet-class>cmd.servlet.borderLands2CalcServlet</servlet-class>
-  	<load-on-startup>1</load-on-startup>
   </servlet>
   
   <servlet-mapping>
@@ -14,7 +12,4 @@
   	<url-pattern>/BorderLands2Calc</url-pattern>
   </servlet-mapping>
   
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-  </welcome-file-list>
 </web-app>

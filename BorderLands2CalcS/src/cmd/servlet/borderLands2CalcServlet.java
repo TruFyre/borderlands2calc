@@ -1,6 +1,7 @@
 package cmd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -48,6 +49,18 @@ public class borderLands2CalcServlet extends HttpServlet {
 
 		System.out.println("BorderLands2Calc doGet called.");
 		
+	    response.setContentType("text/html");
+	    PrintWriter out = response.getWriter();
+	    out.println("<html>");
+	    out.println("<body>");
+	    out.println("<head>");
+	    out.println("<title>First Example</title>");
+	    out.println("</head>");
+	    out.println("<body>");
+	    out.println("<h1>Hello World!</h1>");
+	    out.println("</body>");
+	    out.println("</html>");
+		
 	}
 
 	/**
@@ -55,6 +68,7 @@ public class borderLands2CalcServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		System.out.println("BorderLands2Calc doPost called.");
 	}
 
 }
