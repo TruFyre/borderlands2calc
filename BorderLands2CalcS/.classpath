@@ -13,5 +13,22 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/annotations-api.jar"/>
+	<classpathentry kind="lib" path="libs/catalina-ant.jar"/>
+	<classpathentry kind="lib" path="libs/catalina-ha.jar"/>
+	<classpathentry kind="lib" path="libs/catalina-tribes.jar"/>
+	<classpathentry kind="lib" path="libs/catalina.jar"/>
+	<classpathentry kind="lib" path="libs/ecj-3.7.2.jar"/>
+	<classpathentry kind="lib" path="libs/el-api.jar"/>
+	<classpathentry kind="lib" path="libs/jasper-el.jar"/>
+	<classpathentry kind="lib" path="libs/jasper.jar"/>
+	<classpathentry kind="lib" path="libs/jsp-api.jar"/>
+	<classpathentry kind="lib" path="libs/servlet-api.jar"/>
+	<classpathentry kind="lib" path="libs/tomcat-coyote.jar"/>
+	<classpathentry kind="lib" path="libs/tomcat-dbcp.jar"/>
+	<classpathentry kind="lib" path="libs/tomcat-i18n-es.jar"/>
+	<classpathentry kind="lib" path="libs/tomcat-i18n-fr.jar"/>
+	<classpathentry kind="lib" path="libs/tomcat-i18n-ja.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -50,6 +50,7 @@ public class borderLands2CalcServlet extends HttpServlet {
 		System.out.println("BorderLands2Calc doGet called.");
 		
 	    response.setContentType("text/html");
+	    
 	    PrintWriter out = response.getWriter();
 	    out.println("<html>");
 	    out.println("<body>");
