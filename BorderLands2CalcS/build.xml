@@ -9,7 +9,7 @@
 			<fileset dir="src">
 				<include name="*.java"/>
 			</fileset>
-			 <fileset dir="C:\cmdServers\apache-tomcat-6.0.36\lib">
+			 <fileset dir="libs">
 			 	<include name="*.jar"/>
 			</fileset>
 	</path>
