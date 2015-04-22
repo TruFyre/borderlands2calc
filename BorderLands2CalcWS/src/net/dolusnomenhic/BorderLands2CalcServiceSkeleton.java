@@ -23,11 +23,21 @@ import cmd.borderLands2Calc.Calculator;
         
                  public net.dolusnomenhic.TrueDpsResponse calcTrueDps(net.dolusnomenhic.TrueDpsRequest trueDpsRequest)
             {
+                
+                float damage = trueDpsRequest.getDamage();
+                float fireRate = trueDpsRequest.getFireRate();
+                float reloadTime = trueDpsRequest.getReloadTime();
+                float clipSize = trueDpsRequest.getClipSize();
+                float ammoPerShot = trueDpsRequest.getAmmoPerShot();
+                	 
                 Calculator calculator = new Calculator();
+                
+                float trueDps = calculator.trueDps(damage, fireRate, reloadTime, clipSize, ammoPerShot);
+                
                 
                 TrueDpsResponse trueDpsResponse = new TrueDpsResponse();
                 
-                trueDpsResponse.setTrueDps(1.0f);
+                trueDpsResponse.setTrueDps(trueDps);
                 
                 return trueDpsResponse;
         }
