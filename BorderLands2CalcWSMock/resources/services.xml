@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST) -->
+<serviceGroup>
+    <service name="Borderlands2CalcServiceMock">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="net.dolusnomenhic.Borderlands2CalcServiceMockMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">net.dolusnomenhic.Borderlands2CalcServiceMockSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="calcTrueDps" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://dolusnomenhic.net">
+            <actionMapping>urn:calcTrueDps</actionMapping>
+            <outputActionMapping>urn:calcTrueDpsResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>
