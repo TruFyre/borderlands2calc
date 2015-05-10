@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.Parser;
+import org.apache.axis2.addressing.EndpointReference;
 
 import cmd.borderLands2Calc.Calculator;
-
+import net.dolusnomenhic.*;
+import net.dolusnomenhic.BorderLands2CalcServiceStub.TrueDpsRequest;
+import net.dolusnomenhic.BorderLands2CalcServiceStub.TrueDpsResponse;
 
 /**
  * Servlet implementation class borderLands2CalcServlet
@@ -66,8 +68,18 @@ public class borderLands2CalcServlet extends HttpServlet {
 		float ammoPerShot = Float.parseFloat(strings[4]);
 		
 		
-		Calculator calc = new Calculator();
-		float trueDps = calc.trueDps(damage, fireRate, reloadTime, clipSize, ammoPerShot);
+		
+		BorderLands2CalcServiceStub stub = new BorderLands2CalcServiceStub("http://localhost:8080/axis2/services/BorderLands2CalcService");
+		TrueDpsRequest trueDpsRequest = new TrueDpsRequest();
+		trueDpsRequest.setDamage(damage);
+		trueDpsRequest.setFireRate(fireRate);
+		trueDpsRequest.setReloadTime(reloadTime);
+		trueDpsRequest.setClipSize(clipSize);
+		trueDpsRequest.setAmmoPerShot(ammoPerShot);
+		
+		TrueDpsResponse trueDpsResponse = stub.calcTrueDps(trueDpsRequest);
+		
+		float trueDps = trueDpsResponse.getTrueDps();
 		
 		
 	    response.setContentType("text/html");

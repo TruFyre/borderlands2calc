@@ -9,7 +9,10 @@
 			<fileset dir="src">
 				<include name="*.java"/>
 			</fileset>
-			 <fileset dir="/cmdServers/apache-tomcat-6.0.39/lib">
+			 <fileset dir="/cmdServers/apache-tomcat-6.0.36/lib">
+			 	<include name="*.jar"/>
+			</fileset>
+		    <fileset dir="libs/axis2">
 			 	<include name="*.jar"/>
 			</fileset>
 	</path>
@@ -20,11 +23,11 @@
 		</javac>
 	</target>
 	
-	<target name="war" depends="compile">
+	<target name="war" depends="clean, compile">
 		<war destfile="dist/BorderLands2CalcServlet.war" webxml="WebContent/WEB-INF/web.xml">
 			<fileset dir="WebContent"/>
 			<lib dir="WebContent/WEB-INF/lib"/>
-			<!-- <lib dir="libs"/> -->
+			<lib dir="libs/axis2"/>
 			<classes dir="build/classes"/>
 		</war>
 	</target>
